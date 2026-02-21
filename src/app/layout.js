@@ -4,6 +4,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +31,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
+        <ScrollProgress />
+        <CustomCursor />
         <Navbar />
         <main className="min-h-screen">
           {children}

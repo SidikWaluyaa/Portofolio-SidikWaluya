@@ -43,7 +43,11 @@
     }
   ],
   "skills": {
-    "technical": ["Laravel", "PHP", "MySQL", "REST API", "Blade Template", "Bootstrap", "Tailwind CSS", "Git & GitHub"],
+    "technical": {
+      "Expertise": ["Laravel", "Inertia", "Livewire", "PHP", "MySQL", "REST API", "Blade Template"],
+      "Tools": ["Git & GitHub", "Tailwind CSS", "Bootstrap", "Postman", "Figma"],
+      "Learning": ["React", "Next.js", "TypeScript", "Node.js"]
+    },
     "soft": ["Problem Solving", "Kerja Sama Tim", "Komunikatif", "Manajemen Waktu", "Cepat Belajar Teknologi Baru"]
   },
   "certifications": [
