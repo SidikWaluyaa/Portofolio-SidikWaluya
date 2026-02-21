@@ -34,7 +34,7 @@
     "title": "Sistem Informasi Manajemen RW 10",
     "slug": "manajemen-rw-10",
     "category": "Web Development",
-    "thumbnail": "/Portofolio-SidikWaluya/projects/SabilulFitroh.jpg",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/RW10.jpg",
     "shortDescription": "Platform administrasi digital untuk pengelolaan data warga, keuangan, inventaris, dan layanan surat di lingkungan RW.",
     "problem": "Pengelolaan data warga dan administrasi RW yang masih manual seringkali menyebabkan inefisiensi dan kurangnya transparansi data keuangan serta inventaris.",
     "goals": [
@@ -60,7 +60,7 @@
     "title": "Sabilul Fitroh - Manajemen Masjid",
     "slug": "sabilul-fitroh-masjid",
     "category": "Web Development",
-    "thumbnail": "https://images.unsplash.com/photo-1542736667-069246bdf6d7?auto=format&fit=crop&w=800&q=80",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/SabilulFitroh.jpg",
     "shortDescription": "Sistem manajemen masjid digital untuk transparansi keuangan, jadwal ibadah, dan agenda kegiatan komunitas.",
     "problem": "Masjid memerlukan platform digital untuk mengkomunikasikan transparansi dana umat dan jadwal kegiatan secara terbuka kepada jamaah.",
     "goals": [
