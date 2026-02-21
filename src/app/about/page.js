@@ -106,11 +106,18 @@ export default function About() {
               <h2 className="text-xl font-black mb-8 flex items-center gap-4 uppercase tracking-widest text-primary">
                 Kemampuan Teknis
               </h2>
-              <div className="flex flex-wrap gap-2">
-                {profile.skills.technical.map((skill) => (
-                  <span key={skill} className="px-4 py-2 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white hover:border-primary/50 transition-all">
-                    {skill}
-                  </span>
+              <div className="space-y-6">
+                {Object.entries(profile.skills.technical).map(([category, skills]) => (
+                  <div key={category}>
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-3">{category}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.map((skill) => (
+                        <span key={skill} className="px-3 py-1.5 glass rounded-lg text-[9px] font-bold uppercase tracking-wider text-gray-400 hover:text-white hover:border-primary/50 transition-all">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
