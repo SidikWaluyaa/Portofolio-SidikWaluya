@@ -81,37 +81,60 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-6 right-6 mt-2 glass bg-black/90 rounded-3xl overflow-hidden z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[100] md:hidden flex flex-col items-center justify-center p-8"
           >
-            <div className="flex flex-col p-8 space-y-6">
-              {navLinks.map((link) => (
-                <Link
+            <button
+              className="absolute top-8 right-8 text-white p-3 glass rounded-full"
+              onClick={() => setIsOpen(false)}
+            >
+              <X size={24} />
+            </button>
+
+            <div className="flex flex-col items-center space-y-8 w-full max-w-sm">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "text-lg font-black uppercase tracking-tighter transition-colors flex items-center gap-4",
-                    pathname === link.href ? "text-primary" : "text-gray-400"
-                  )}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {link.name}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "text-4xl font-black uppercase tracking-tighter transition-all hover:scale-110 flex items-center gap-4",
+                      pathname === link.href ? "text-primary scale-110" : "text-gray-500"
+                    )}
+                  >
+                    <span className={cn(
+                      "w-2 h-2 rounded-full",
+                      pathname === link.href ? "bg-primary" : "bg-transparent"
+                    )} />
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-4 px-6 py-4 rounded-2xl bg-primary text-white text-center font-black uppercase tracking-widest"
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+                className="w-full pt-8"
               >
-                Hire Me
-              </Link>
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full py-6 rounded-2xl bg-white text-black text-center font-black uppercase tracking-[0.2em] text-sm hover:bg-white/90 active:scale-95 transition-all"
+                >
+                  Hire Me
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

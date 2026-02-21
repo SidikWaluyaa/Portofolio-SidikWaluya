@@ -51,7 +51,7 @@ export default function About() {
         >
           {/* 1. PROFILE PHOTO CARD (Spans 4 cols on desktop, skyscraper) */}
           <motion.div variants={itemVariants} className="md:col-span-4 md:row-span-2">
-            <GlassCard className="h-full group relative overflow-hidden p-0 border-primary/10">
+            <GlassCard className="h-[400px] md:h-full group relative overflow-hidden p-0 border-primary/10">
               <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
                 <img 
                   src="/Portofolio-SidikWaluya/profile-sidik.jpg" 
@@ -60,11 +60,11 @@ export default function About() {
                 />
               </div>
               {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-60 group-hover:opacity-80" />
               
               {/* Floating Badge */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black tracking-widest uppercase text-white mb-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black tracking-widest uppercase text-white mb-2 text-glow">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   Available for Hire
                 </div>
@@ -75,50 +75,50 @@ export default function About() {
 
           {/* 2. HERO BIO CARD (Spans 8 cols) */}
           <motion.div variants={itemVariants} className="md:col-span-8">
-            <GlassCard className="h-full p-8 md:p-12 border-primary/10 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+            <GlassCard className="h-full p-6 md:p-12 border-primary/10 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity hidden md:block">
                 <Globe size={120} className="text-white" />
               </div>
               <div className="relative z-10">
-                <div className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-6 flex items-center gap-2">
+                <div className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] md:text-[10px] mb-4 md:mb-6 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   Profil Profesional
                 </div>
-                <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tight">
+                <h1 className="text-3xl md:text-6xl font-black mb-6 md:mb-8 tracking-tight">
                   Tentang <span className="text-gradient">Sidik Waluya</span>
                 </h1>
-                <p className="text-gray-400 text-lg md:text-xl leading-relaxed font-light max-w-3xl">
+                <p className="text-gray-400 text-base md:text-xl leading-relaxed font-light max-w-3xl">
                   {profile.bio}
                 </p>
               </div>
             </GlassCard>
           </motion.div>
 
-          {/* 2. STATS CARD - PROJECTS (Spans 4 cols) */}
+          {/* 3. STATS CARD - PROJECTS (Spans 4 cols) */}
           <motion.div variants={itemVariants} className="md:col-span-4">
-            <GlassCard className="h-full p-8 flex flex-col justify-center items-center text-center border-blue-500/20 bg-blue-500/5">
-              <div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20">
-                <Star className="text-blue-500" size={32} />
+            <GlassCard className="h-full p-6 md:p-8 flex flex-col justify-center items-center text-center border-blue-500/20 bg-blue-500/5">
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4 md:mb-6 border border-blue-500/20">
+                <Star className="text-blue-500" size={24} md:size={32} />
               </div>
-              <div className="text-5xl font-black mb-2 text-white">4+</div>
-              <div className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Proyek Selesai</div>
+              <div className="text-4xl md:text-5xl font-black mb-2 text-white">4+</div>
+              <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Proyek Selesai</div>
             </GlassCard>
           </motion.div>
 
-          {/* 3. EXPERIENCE CARD (Spans 7 cols, row span implicit) */}
+          {/* 4. EXPERIENCE CARD (Spans 7 cols) */}
           <motion.div variants={itemVariants} className="md:col-span-7">
-            <GlassCard className="h-full p-8 md:p-10">
-              <h2 className="text-2xl font-black mb-10 flex items-center gap-4">
-                <Briefcase className="text-primary" size={24} /> Pengalaman
+            <GlassCard className="h-full p-6 md:p-10">
+              <h2 className="text-xl md:text-2xl font-black mb-10 flex items-center gap-4">
+                <Briefcase className="text-primary" size={20} md:size={24} /> Pengalaman
               </h2>
-              <div className="space-y-12">
+              <div className="space-y-10 md:space-y-12">
                 {profile.experience.map((exp, index) => (
                   <div key={index} className="relative pl-8 border-l border-white/10">
                     <div className="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full border-4 border-[#0a0a0a]" />
-                    <span className="text-[10px] font-black text-primary/60 uppercase tracking-widest mb-2 block">{exp.period}</span>
-                    <h3 className="text-xl font-bold mb-1">{exp.role}</h3>
-                    <p className="text-gray-500 text-sm mb-4">{exp.company}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">
+                    <span className="text-[9px] md:text-[10px] font-black text-primary/60 uppercase tracking-widest mb-2 block">{exp.period}</span>
+                    <h3 className="text-lg md:text-xl font-bold mb-1">{exp.role}</h3>
+                    <p className="text-gray-500 text-xs md:text-sm mb-4">{exp.company}</p>
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed whitespace-pre-line">
                       {exp.description.replace(/;/g, '\n')}
                     </p>
                   </div>

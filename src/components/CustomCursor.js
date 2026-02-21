@@ -10,6 +10,10 @@ export default function CustomCursor() {
   const mouseY = useSpring(0, { stiffness: 500, damping: 28 });
 
   useEffect(() => {
+    // Detect touch devices to avoid showing custom cursor
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
     const handleMouseMove = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
