@@ -80,5 +80,31 @@
         "description": "Otomatisasi pola waktu sholat dan pengaturan jadwal petugas jumat."
       }
     ]
+  },
+  {
+    "id": "4",
+    "title": "YusrilNet - WiFi Voucher 🌐",
+    "slug": "yusril-net",
+    "category": "Web Development",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/YusrilNet.jpg",
+    "shortDescription": "Landing page modern untuk layanan voucher WiFi, dirancang untuk meningkatkan brand awareness dan memudahkan akses informasi bagi pengguna.",
+    "problem": "Penyedia layanan internet lokal (RT/RW Net) seringkali kesulitan mempresentasikan brand mereka secara profesional kepada calon pelanggan.",
+    "goals": [
+      "Membangun identitas digital yang profesional untuk YusrilNet",
+      "Memberikan informasi paket layanan yang jelas dan menarik",
+      "Optimasi antarmuka untuk konversi pembelian voucher"
+    ],
+    "tech": ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    "impact": "Meningkatkan kepercayaan pelanggan dan mempermudah visualisasi layanan internet lokal melalui desain yang premium.",
+    "steps": [
+      {
+        "title": "Desain UI/UX",
+        "description": "Perancangan antarmuka futuristik dengan nuansa biru gelap dan efek neon."
+      },
+      {
+        "title": "Pengembangan Frontend",
+        "description": "Implementasi animasi transisi halus menggunakan Framer Motion."
+      }
+    ]
   }
 ]

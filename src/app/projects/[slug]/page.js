@@ -68,6 +68,15 @@ export default async function ProjectDetailPage({ params }) {
         </div>
 
         <aside className="space-y-8">
+          {project.githubUrl && (
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              className="w-full py-4 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-white/90 transition-all active:scale-95"
+            >
+              Lihat di GitHub <Cpu size={14} />
+            </a>
+          )}
           <GlassCard className="p-8">
             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
               <Cpu className="text-primary" size={20} /> Teknologi
