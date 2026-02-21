@@ -39,8 +39,9 @@ export default function Navbar() {
         "max-w-5xl mx-auto flex items-center justify-between px-8 py-3 rounded-2xl transition-all duration-1000",
         scrolled ? "glass bg-black/40 shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10" : "bg-transparent border-transparent"
       )}>
-        <Link href="/" className="text-xl font-black tracking-tighter text-white hover:text-blue-400 transition-colors">
-          SIDIK<span className="text-blue-500">.</span>
+        <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tighter text-white hover:text-blue-400 transition-colors group">
+          <img src="/Portofolio-SidikWaluya/logo.svg" alt="Sidik Logo" className="w-8 h-8 group-hover:rotate-12 transition-transform duration-500" />
+          <span>SIDIK<span className="text-blue-500">.</span></span>
         </Link>
 
         {/* Desktop Nav */}
