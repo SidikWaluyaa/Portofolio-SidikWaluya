@@ -35,7 +35,7 @@ export default function Hero() {
         </h1>
         
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed font-light">
-          Senior Full Stack Developer yang berfokus pada pembuatan aplikasi web <span className="text-white font-medium">berkinerja tinggi</span> dengan desain yang elegan.
+          Junior Full Stack Developer yang berfokus pada pembuatan aplikasi web <span className="text-white font-medium">berkinerja tinggi</span> dengan desain yang elegan.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8">

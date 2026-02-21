@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sidik | Senior Full Stack Developer",
-  description: "Portofolio Sidik, seorang Senior Full Stack Developer yang berspesialisasi dalam membangun pengalaman digital premium.",
+  title: "Sidik | Junior Full Stack Developer",
+  description: "Portofolio Sidik, seorang Junior Full Stack Developer yang berspesialisasi dalam membangun pengalaman digital premium.",
   icons: {
     icon: "/Portofolio-SidikWaluya/logo.svg",
   },
