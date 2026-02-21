@@ -12,17 +12,17 @@ export default function FeaturedProjects() {
 
   return (
     <section className="section-container relative">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-10">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-32 gap-6 md:gap-10">
         <div className="max-w-xl">
-          <div className="text-blue-500 font-bold uppercase tracking-[0.3em] text-[10px] mb-6">Karya Terbaru</div>
-          <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tight">
+          <div className="text-blue-500 font-bold uppercase tracking-[0.3em] text-[9px] md:text-[10px] mb-4 md:mb-6">Karya Terbaru</div>
+          <h2 className="text-[clamp(2rem,6vw,3.75rem)] font-black mb-6 md:mb-8 tracking-tight leading-tight">
             Proyek <span className="text-gradient">Unggulan</span>
           </h2>
-          <p className="text-gray-400 text-xl leading-relaxed">
+          <p className="text-gray-400 text-base md:text-xl leading-relaxed">
             Pilihan proyek berdampak tinggi yang menunjukkan presisi teknis dan desain yang berpusat pada pengguna.
           </p>
         </div>
-        <Link href="/projects" className="flex items-center gap-4 text-white font-bold uppercase tracking-widest text-[11px] group border-b border-primary/30 pb-2 hover:border-primary transition-all">
+        <Link href="/projects" className="flex items-center gap-4 text-white font-bold uppercase tracking-widest text-[10px] md:text-[11px] group border-b border-primary/30 pb-2 hover:border-primary transition-all">
           Lihat Semua <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </Link>
       </div>

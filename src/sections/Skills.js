@@ -25,12 +25,12 @@ export default function Skills() {
     <section className="section-container relative">
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="text-center mb-24">
-        <div className="text-blue-500 font-bold uppercase tracking-[0.3em] text-[10px] mb-6">Stack & Kualitas</div>
-        <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tight">
+      <div className="text-center mb-16 md:mb-24">
+        <div className="text-blue-500 font-bold uppercase tracking-[0.3em] text-[9px] md:text-[10px] mb-4 md:mb-6">Stack & Kualitas</div>
+        <h2 className="text-[clamp(2rem,6vw,3rem)] font-black mb-6 md:mb-8 tracking-tight leading-tight">
           Teknologi <span className="text-gradient">Unggulan</span>
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           Menggunakan kombinasi teknologi modern untuk menghadirkan skalabilitas dan efisiensi tingkat tinggi.
         </p>
       </div>

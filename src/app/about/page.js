@@ -98,7 +98,7 @@ export default function About() {
           <motion.div variants={itemVariants} className="md:col-span-4">
             <GlassCard className="h-full p-6 md:p-8 flex flex-col justify-center items-center text-center border-blue-500/20 bg-blue-500/5">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4 md:mb-6 border border-blue-500/20">
-                <Star className="text-blue-500" size={24} md:size={32} />
+                <Star className="text-blue-500" size={24} />
               </div>
               <div className="text-4xl md:text-5xl font-black mb-2 text-white">4+</div>
               <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Proyek Selesai</div>
@@ -109,7 +109,7 @@ export default function About() {
           <motion.div variants={itemVariants} className="md:col-span-7">
             <GlassCard className="h-full p-6 md:p-10">
               <h2 className="text-xl md:text-2xl font-black mb-10 flex items-center gap-4">
-                <Briefcase className="text-primary" size={20} md:size={24} /> Pengalaman
+                <Briefcase className="text-primary" size={24} /> Pengalaman
               </h2>
               <div className="space-y-10 md:space-y-12">
                 {profile.experience.map((exp, index) => (
