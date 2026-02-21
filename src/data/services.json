@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fullstack",
+    "title": "Full Stack Web Development",
+    "description": "Membangun aplikasi web berperforma tinggi menggunakan Laravel dan ekosistem modern. Berfokus pada skalabilitas dan arsitektur kode yang bersih.",
+    "icon": "Code",
+    "features": ["Laravel & PHP Expert", "RESTful API Development", "Database Optimization", "Integrasi Vite & Alpine.js"]
+  },
+  {
+    "id": "manajemen-sistem",
+    "title": "Sistem Manajemen & CMS",
+    "description": "Spesialisasi dalam pembuatan sistem administrasi (RW, Masjid) dan Dashboard Admin kustom untuk pengelolaan konten secara dinamis.",
+    "icon": "Layout",
+    "features": ["Custom Admin Panels", "Automated Reporting (PDF)", "Transaction Workflows", "User Role Management"]
+  },
+  {
+    "id": "uiux-design",
+    "title": "UI/UX & Product Design",
+    "description": "Merancang antarmuka pengguna yang intuitif dan estetik. Menerapkan Design Thinking untuk menciptakan produk yang berpusat pada solusi bagi pengguna.",
+    "icon": "Figma",
+    "features": ["High Fidelity Prototyping", "Design System Creation", "User Journey Mapping", "Responsive Web Design"]
+  }
+]

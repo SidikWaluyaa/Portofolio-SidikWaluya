@@ -1,0 +1,54 @@
+{
+  "name": "Sidik Waluya",
+  "role": "Full Stack Web Developer",
+  "tagline": "Membangun Pengalaman Digital Premium dengan Presisi dan Gairah.",
+  "contact": {
+    "phone": "0812-1469-6299",
+    "email": "sidikwaluya25@gmail.com",
+    "location": "Bandung, Jawa Barat"
+  },
+  "socials": {
+    "github": "https://github.com/SidikWaluyaa",
+    "linkedin": "https://www.linkedin.com/in/sidik-waluya-794b76327",
+    "instagram": "https://instagram.com/sidik.waluya"
+  },
+  "bio": "Lulusan D3 Manajemen Informatika dengan IPK 3.70 yang berfokus pada pengembangan aplikasi web sebagai Web Developer Full Stack. Berpengalaman membangun sistem berbasis Laravel, mulai dari perancangan frontend, pengelolaan logika backend, hingga desain dan pengelolaan database MySQL. Terbiasa mengembangkan sistem CRUD, alur transaksi, serta website berbasis layanan dan informasi. Memiliki kemampuan kerja tim yang baik, komunikatif, dan siap mempelajari teknologi baru sesuai kebutuhan perusahaan.",
+  "experience": [
+    {
+      "company": "Pengurus Rukun Warga 10",
+      "role": "Seksi Pendidikan dan Kebudayaan",
+      "period": "2023 - Sekarang",
+      "location": "Bandung, Jawa Barat",
+      "description": "Mengelola dan mengoordinasikan program pendidikan masyarakat; Merancang kegiatan edukatif yang terstruktur; Berkontribusi dalam perancangan sistem informasi RW berbasis web sebagai media informasi warga."
+    },
+    {
+      "company": "Infinix Learning",
+      "role": "Web Developer & UI/UX Designer",
+      "period": "Sept 2024 - Des 2024",
+      "description": "Menerapkan konsep design thinking untuk memahami kebutuhan pengguna; Bekerja dalam tim lintas fungsi (Hacker/Hipster/Hustler); Menguasai keterampilan teknis desain UI/UX dan manajemen proyek (Scrum)."
+    }
+  ],
+  "education": [
+    {
+      "school": "STMIK MARDIRA INDONESIA",
+      "degree": "Diploma (D3) Manajemen Informatika",
+      "period": "2022 - 2025",
+      "details": "IPK: 3.70"
+    },
+    {
+      "school": "SMAN 11 Bandung",
+      "degree": "Sekolah Menengah Atas",
+      "period": "2019 - 2021",
+      "details": "Aktif dalam berbagai Organisasi Internal"
+    }
+  ],
+  "skills": {
+    "technical": ["Laravel", "PHP", "MySQL", "REST API", "Blade Template", "Bootstrap", "Tailwind CSS", "Git & GitHub"],
+    "soft": ["Problem Solving", "Kerja Sama Tim", "Komunikatif", "Manajemen Waktu", "Cepat Belajar Teknologi Baru"]
+  },
+  "certifications": [
+    "MSIB Certificate",
+    "Certificate Of Internship (MSIB)",
+    "Certificate Best Project (UI/UX Design)"
+  ]
+}

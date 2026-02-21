@@ -1,0 +1,84 @@
+[
+  {
+    "id": "1",
+    "title": "Bumi Tirta Wisata 🌊",
+    "slug": "bumi-tirta-wisata",
+    "category": "Web Development",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/BumiTirta.jpeg",
+    "shortDescription": "Aplikasi web modern untuk manajemen destinasi wisata, lengkap dengan dashboard admin CMS dinamis.",
+    "problem": "Manajemen destinasi wisata membutuhkan gerbang digital yang menarik untuk pengunjung serta sistem internal yang efisien untuk mengelola konten, galeri, dan layanan secara real-time.",
+    "goals": [
+      "Membangun antarmuka publik yang responsif dan estetik",
+      "Mengembangkan CMS internal untuk pengelolaan konten dinamis",
+      "Meningkatkan kehadiran digital destinasi wisata"
+    ],
+    "tech": ["Laravel 12", "Tailwind CSS", "MySQL", "PHP 8.2", "Vite"],
+    "impact": "Memudahkan pengelolaan konten destinasi wisata tanpa harus menyentuh kode, serta memberikan pengalaman eksplorasi layanan yang mulus bagi pengunjung.",
+    "steps": [
+      {
+        "title": "Analisis Kebutuhan",
+        "description": "Menentukan fitur utama untuk publik dan dashboard admin."
+      },
+      {
+        "title": "Pengembangan CMS",
+        "description": "Membangun modul manajemen misi, nilai perusahaan, tim, dan layanan dengan sistem upload gambar."
+      },
+      {
+        "title": "Integrasi Frontend",
+        "description": "Implementasi desain responsif menggunakan Tailwind CSS dan Blade Templates."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Sistem Informasi Manajemen RW 10",
+    "slug": "manajemen-rw-10",
+    "category": "Web Development",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/SabilulFitroh.jpg",
+    "shortDescription": "Platform administrasi digital untuk pengelolaan data warga, keuangan, inventaris, dan layanan surat di lingkungan RW.",
+    "problem": "Pengelolaan data warga dan administrasi RW yang masih manual seringkali menyebabkan inefisiensi dan kurangnya transparansi data keuangan serta inventaris.",
+    "goals": [
+      "Digitalisasi manajemen data penduduk dan kartu keluarga",
+      "Otomatisasi pembuatan surat pengantar warga",
+      "Transparansi laporan keuangan dan manajemen iuran bulanan"
+    ],
+    "tech": ["Laravel 12", "PostgreSQL", "Alpine.js", "Tailwind CSS"],
+    "impact": "Meningkatkan akurasi data warga hingga 90% dan mempermudah pengurus dalam pelayanan administrasi serta pelaporan keuangan yang transparan.",
+    "steps": [
+      {
+        "title": "Struktur Database",
+        "description": "Merancang skema database yang kompleks untuk warga, keuangan, dan inventaris."
+      },
+      {
+        "title": "Modul Administrasi",
+        "description": "Pengembangan fitur cetak surat otomatis dan manajemen tunggakan iuran."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Sabilul Fitroh - Manajemen Masjid",
+    "slug": "sabilul-fitroh-masjid",
+    "category": "Web Development",
+    "thumbnail": "https://images.unsplash.com/photo-1542736667-069246bdf6d7?auto=format&fit=crop&w=800&q=80",
+    "shortDescription": "Sistem manajemen masjid digital untuk transparansi keuangan, jadwal ibadah, dan agenda kegiatan komunitas.",
+    "problem": "Masjid memerlukan platform digital untuk mengkomunikasikan transparansi dana umat dan jadwal kegiatan secara terbuka kepada jamaah.",
+    "goals": [
+      "Publikasi laporan keuangan masjid secara real-time",
+      "Manajemen jadwal sholat, khotib Jumat, dan agenda masjid",
+      "Sistem inventarisasi aset masjid"
+    ],
+    "tech": ["Laravel 12", "MySQL", "Tailwind CSS", "DomPDF", "Alpine.js"],
+    "impact": "Jamaah dapat dengan mudah memantau arus kas masjid dan jadwal ibadah melalui antarmuka yang modern dan responsif.",
+    "steps": [
+      {
+        "title": "Sistem Keuangan",
+        "description": "Membangun pencatatan transaksi pemasukan/pengeluaran dengan fitur export PDF."
+      },
+      {
+        "title": "Manajemen Jadwal",
+        "description": "Otomatisasi pola waktu sholat dan pengaturan jadwal petugas jumat."
+      }
+    ]
+  }
+]
