@@ -49,7 +49,31 @@ export default function About() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-12 gap-6"
         >
-          {/* 1. HERO BIO CARD (Spans 8 cols) */}
+          {/* 1. PROFILE PHOTO CARD (Spans 4 cols on desktop, skyscraper) */}
+          <motion.div variants={itemVariants} className="md:col-span-4 md:row-span-2">
+            <GlassCard className="h-full group relative overflow-hidden p-0 border-primary/10">
+              <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                <img 
+                  src="/Portofolio-SidikWaluya/profile-sidik.jpg" 
+                  alt="Sidik Waluya"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              
+              {/* Floating Badge */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black tracking-widest uppercase text-white mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  Available for Hire
+                </div>
+                <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Full Stack Designer</h3>
+              </div>
+            </GlassCard>
+          </motion.div>
+
+          {/* 2. HERO BIO CARD (Spans 8 cols) */}
           <motion.div variants={itemVariants} className="md:col-span-8">
             <GlassCard className="h-full p-8 md:p-12 border-primary/10 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
