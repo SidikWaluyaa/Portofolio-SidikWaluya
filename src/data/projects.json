@@ -83,27 +83,32 @@
   },
   {
     "id": "4",
-    "title": "YusrilNet - WiFi Voucher 🌐",
+    "title": "YusrilNet - WiFi Voucher Management System 🌐",
     "slug": "yusril-net",
     "category": "Web Development",
     "thumbnail": "/Portofolio-SidikWaluya/projects/YusrilNet.jpg",
-    "shortDescription": "Landing page modern untuk layanan voucher WiFi, dirancang untuk meningkatkan brand awareness dan memudahkan akses informasi bagi pengguna.",
-    "problem": "Penyedia layanan internet lokal (RT/RW Net) seringkali kesulitan mempresentasikan brand mereka secara profesional kepada calon pelanggan.",
+    "shortDescription": "Sistem manajemen voucher WiFi berbasis Laravel untuk pengelolaan paket internet, voucher, dan pesanan pelanggan secara modern.",
+    "problem": "Penyedia layanan internet lokal (RT/RW Net) seringkali kesulitan mengelola voucher, memantau pesanan, dan mempresentasikan brand mereka secara profesional kepada pelanggan.",
     "goals": [
-      "Membangun identitas digital yang profesional untuk YusrilNet",
-      "Memberikan informasi paket layanan yang jelas dan menarik",
-      "Optimasi antarmuka untuk konversi pembelian voucher"
+      "Digitalisasi manajemen voucher WiFi otomatis",
+      "Integrasi payment gateway untuk pembelian mandiri",
+      "Penyediaan dashboard admin yang efisien untuk monitoring pesanan",
+      "Membangun antarmuka pelanggan yang responsif dan user-friendly"
     ],
-    "tech": ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    "impact": "Meningkatkan kepercayaan pelanggan dan mempermudah visualisasi layanan internet lokal melalui desain yang premium.",
+    "tech": ["Laravel 11", "PHP 8.2", "MySQL", "Bootstrap 5", "iPaymu Gateway"],
+    "impact": "Mempermudah operasional RT/RW Net melalui otomatisasi pengiriman voucher ke email pelanggan dan transparansi laporan keuangan.",
     "steps": [
       {
-        "title": "Desain UI/UX",
-        "description": "Perancangan antarmuka futuristik dengan nuansa biru gelap dan efek neon."
+        "title": "Arsitektur Sistem",
+        "description": "Merancang skema database untuk integrasi paket internet dan sistem voucher."
       },
       {
-        "title": "Pengembangan Frontend",
-        "description": "Implementasi animasi transisi halus menggunakan Framer Motion."
+        "title": "Integrasi Payment",
+        "description": "Implementasi iPaymu Gateway untuk proses pembayaran otomatis."
+      },
+      {
+        "title": "Custom Admin Panel",
+        "description": "Membangun dashboard eksklusif dengan tema Neptune Blue tanpa menggunakan template pihak ketiga."
       }
     ]
   }
