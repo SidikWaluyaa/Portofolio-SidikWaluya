@@ -51,16 +51,16 @@ export default function About() {
         >
           {/* 1. PROFILE PHOTO CARD (Spans 4 cols on desktop, skyscraper) */}
           <motion.div variants={itemVariants} className="md:col-span-4 md:row-span-2">
-            <GlassCard className="h-[400px] md:h-full group relative overflow-hidden p-0 border-primary/10">
-              <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+            <GlassCard className="h-[400px] md:h-full group relative overflow-hidden p-0 border-primary/10 cursor-pointer touch-none">
+              <div className="absolute inset-0 grayscale-[100%] group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-700 ease-in-out">
                 <img 
                   src="/Portofolio-SidikWaluya/profile-sidik.jpg" 
                   alt="Sidik Waluya"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover transform group-hover:scale-110 group-active:scale-105 transition-transform duration-700"
                 />
               </div>
               {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-60 group-hover:opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-60 group-hover:opacity-80 group-active:opacity-80 transition-opacity" />
               
               {/* Floating Badge */}
               <div className="absolute bottom-6 left-6 right-6">
