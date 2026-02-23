@@ -1,5 +1,46 @@
 [
   {
+    "id": "1771817146385",
+    "title": "Animal Kids Zone (Dunia Hewan Ceria)",
+    "slug": "animal-kids-zone",
+    "category": "Web Development",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/1771817204381-animal_kids_zone.vercel.app_.png",
+    "shortDescription": "Platform edukasi interaktif yang memungkinkan anak-anak (5-6 Tahun) menjelajahi dunia hewan melalui visual yang ceria dan fakta-fakta menarik.",
+    "problem": "Materi pembelajaran tradisional tentang hewan sering terasa statis. Generasi digital membutuhkan platform yang aman, interaktif, dan merangsang rasa ingin tahu sejak dini.",
+    "goals": [
+      "Memberikan edukasi interaktif yang menyenangkan.",
+      "Menyajikan informasi hewan dalam format yang mudah dicerna anak-anak.",
+      "Menciptakan ruang digital yang aman dan berkualitas.",
+      "Ini Link app nya : https://animal-kids-zone.vercel.app/"
+    ],
+    "tech": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "impact": "Meningkatkan kesadaran alam pada anak-anak dan literasi digital melalui pengalaman belajar yang terasa seperti bermain (gamified learning).",
+    "steps": [
+      {
+        "title": "Langkah 1",
+        "description": "Child-Friendly UI Design: Riset visual dan warna ceria yang menarik perhatian anak-anak."
+      },
+      {
+        "title": "Langkah 2",
+        "description": "TypeScript Implementation: Memastikan logika aplikasi kuat dan bebas error dengan TypeScript."
+      },
+      {
+        "title": "Langkah 3",
+        "description": "Content Asset Management: Kurasi gambar aset hewan berkualitas tinggi."
+      },
+      {
+        "title": "Langkah 4",
+        "description": "Performance Tuning: Optimasi loading gambar agar pengalaman eksplorasi tetap lancar."
+      }
+    ]
+  },
+  {
     "id": "1",
     "title": "Bumi Tirta Wisata 🌊",
     "slug": "bumi-tirta-wisata",
