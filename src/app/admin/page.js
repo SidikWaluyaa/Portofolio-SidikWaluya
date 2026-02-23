@@ -34,10 +34,10 @@ export default function AdminPage() {
   const [articlesData, setArticlesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState({ type: "", message: "" });
-  function showStatus(type, message) {
+  const showStatus = useCallback((type, message) => {
     setStatus({ type, message });
     setTimeout(() => setStatus({ type: "", message: "" }), 3000);
-  }
+  }, []);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [password, setPassword] = useState("");
 
