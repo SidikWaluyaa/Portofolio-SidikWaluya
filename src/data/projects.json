@@ -1,28 +1,5 @@
 [
   {
-    "id": "1771815435401",
-    "title": "Proyek Baru",
-    "slug": "proyek-baru",
-    "category": "Web Development",
-    "thumbnail": "/Portofolio-SidikWaluya/projects/1771815442510-shoeworkshop_dokumentasi_workshop_1771395079204.jpg",
-    "shortDescription": "Deskripsi singkat proyek",
-    "problem": "Masalah yang diselesaikan...",
-    "goals": [
-      "Goal 1"
-    ],
-    "tech": [
-      "React",
-      "Next.js"
-    ],
-    "impact": "Dampak proyek...",
-    "steps": [
-      {
-        "title": "Langkah 1",
-        "description": "Deskripsi langkah 1"
-      }
-    ]
-  },
-  {
     "id": "1",
     "title": "Bumi Tirta Wisata 🌊",
     "slug": "bumi-tirta-wisata",
