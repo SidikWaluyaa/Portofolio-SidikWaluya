@@ -14,7 +14,16 @@ try {
   // 1. Hide API routes from Next.js builder
   if (fs.existsSync(apiPath)) {
     console.log('📦 Isolating API routes to prevent export conflicts...');
-    fs.renameSync(apiPath, tmpApiPath);
+    try {
+      fs.renameSync(apiPath, tmpApiPath);
+    } catch (err) {
+      if (err.code === 'EPERM') {
+        console.error('\n❌ ERROR: Akses ditolak saat mengisolasi API.');
+        console.error('💡 TIP: Pastikan "npm run dev" sudah dimatikan sebelum menjalankan export.');
+        process.exit(1);
+      }
+      throw err; // Re-throw other errors to be caught by the outer try-catch
+    }
     apiHidden = true;
   } else {
     console.log('ℹ️  No API directory found at src/app/api, skipping isolation.');
