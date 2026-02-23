@@ -27,28 +27,52 @@ export default function ServicesOverview() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <motion.div 
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-12"
+      >
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    type: "spring",
+                    damping: 20
+                  }
+                }
+              }}
             >
-              <GlassCard className="h-full flex flex-col items-start text-left">
-                <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 mb-8">
+              <GlassCard 
+                className="h-full flex flex-col items-start text-left group hover:border-primary/30 transition-all duration-500"
+                data-cursor="SERVICE"
+              >
+                <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 mb-8 group-hover:bg-primary group-hover:text-black transition-all duration-500">
                   {iconMap[service.icon] || <Layout size={32} />}
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-400 mb-8 flex-grow">
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
                   {service.description}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4 w-full">
                   {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-sm text-gray-300">
+                    <li key={f} className="flex items-center gap-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest">
                       <div className="p-1 rounded-full bg-primary/20 text-primary">
-                        <Check size={12} />
+                        <Check size={10} />
                       </div>
                       {f}
                     </li>
@@ -57,7 +81,7 @@ export default function ServicesOverview() {
               </GlassCard>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
     </section>
   );
 }

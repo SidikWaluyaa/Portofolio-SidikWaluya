@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code, Layout, User, Mail, Folder } from "lucide-react";
+import { Menu, X, Code, Layout, User, Mail, Folder, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Tentang", href: "/about", icon: <User className="w-4 h-4" /> },
   { name: "Proyek", href: "/projects", icon: <Folder className="w-4 h-4" /> },
   { name: "Layanan", href: "/services", icon: <Code className="w-4 h-4" /> },
+  { name: "Blog", href: "/blog", icon: <FileText className="w-4 h-4" /> },
   { name: "Kontak", href: "/contact", icon: <Mail className="w-4 h-4" /> },
 ];
 
@@ -51,6 +52,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                data-cursor="NAV"
                 className={cn(
                   "text-[10px] font-bold uppercase tracking-[0.3em] transition-all relative group",
                   pathname === link.href ? "text-white" : "text-gray-500"

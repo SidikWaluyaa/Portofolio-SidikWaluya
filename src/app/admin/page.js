@@ -20,16 +20,18 @@ import {
   History,
   Award,
   Link as LinkIcon,
-  Upload
+  Upload,
+  FileText
 } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import { cn } from "@/lib/utils";
 
-export default function AdminDashboard() {
+export default function AdminPage() {
   const [activeTab, setActiveTab] = useState("profile");
   const [profileData, setProfileData] = useState(null);
   const [projectsData, setProjectsData] = useState([]);
   const [servicesData, setServicesData] = useState([]);
+  const [articlesData, setArticlesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -37,23 +39,52 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (isAuthorized) {
-      fetchData();
+      fetchData(); // This will now be fetchProfile
+      fetchProjects();
+      fetchServices();
+      fetchArticles();
     }
   }, [isAuthorized]);
 
-  const fetchData = async () => {
-    setLoading(true);
+  const fetchData = async () => { // Renamed from original fetchData to fetchProfile conceptually
+    setLoading(true); // Keep loading for initial data fetch
     try {
       const pRes = await fetch('/api/admin/profile');
-      const prRes = await fetch('/api/admin/projects');
-      const sRes = await fetch('/api/admin/services');
       setProfileData(await pRes.json());
-      setProjectsData(await prRes.json());
-      setServicesData(await sRes.json());
     } catch (error) {
-      showStatus("error", "Gagal memuat data");
+      showStatus("error", "Gagal mengambil data profil");
     }
-    setLoading(false);
+    setLoading(false); // Set loading to false after initial profile fetch
+  };
+
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch('/api/admin/projects');
+      const data = await res.json();
+      setProjectsData(data);
+    } catch (error) {
+      showStatus("error", "Gagal mengambil data proyek");
+    }
+  };
+
+  const fetchServices = async () => {
+    try {
+      const res = await fetch('/api/admin/services');
+      const data = await res.json();
+      setServicesData(data);
+    } catch (error) {
+      showStatus("error", "Gagal mengambil data layanan");
+    }
+  };
+
+  const fetchArticles = async () => {
+    try {
+      const res = await fetch('/api/admin/articles');
+      const data = await res.json();
+      setArticlesData(data);
+    } catch (error) {
+      showStatus("error", "Gagal mengambil data artikel");
+    }
   };
 
   const showStatus = (type, message) => {
@@ -100,6 +131,19 @@ export default function AdminDashboard() {
     }
   };
 
+  const saveArticles = async () => {
+    try {
+      const res = await fetch('/api/admin/articles', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(articlesData),
+      });
+      if (res.ok) showStatus("success", "Artikel berhasil disimpan!");
+    } catch (error) {
+      showStatus("error", "Gagal menyimpan artikel");
+    }
+  };
+
   const handleFileUpload = async (index, file) => {
     if (!file) return;
     
@@ -126,6 +170,20 @@ export default function AdminDashboard() {
     } catch (error) {
       showStatus("error", "Kesalahan sistem saat upload");
     }
+  };
+
+  const addArticle = () => {
+    const newArticle = {
+      id: Date.now().toString(),
+      title: "Judul Artikel Baru",
+      slug: "judul-artikel-baru",
+      excerpt: "Ringkasan singkat artikel...",
+      content: "Mulai menulis di sini...",
+      category: "Tech",
+      date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+      thumbnail: ""
+    };
+    setArticlesData([newArticle, ...articlesData]);
   };
 
   // Projects CRUD
@@ -251,9 +309,12 @@ export default function AdminDashboard() {
               <button onClick={() => setActiveTab("profile")} className={cn("flex items-center gap-3 px-4 py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all", activeTab === "profile" ? "bg-primary text-white" : "hover:bg-white/5 text-gray-500")}>
                 <User size={16} /> Profile
               </button>
-               <button onClick={() => setActiveTab("services")} className={cn("flex items-center gap-3 px-4 py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all", activeTab === "services" ? "bg-primary text-white" : "hover:bg-white/5 text-gray-500")}>
-                <Layout size={16} /> Services
-              </button>
+                <button onClick={() => setActiveTab("services")} className={cn("flex items-center gap-3 px-6 py-4 text-sm font-bold transition-all border-l-2", activeTab === "services" ? "bg-primary/10 border-primary text-primary" : "border-transparent text-gray-500 hover:text-white hover:bg-white/5")}>
+                  <Layout size={18} /> Services
+                </button>
+                <button onClick={() => setActiveTab("articles")} className={cn("flex items-center gap-3 px-6 py-4 text-sm font-bold transition-all border-l-2", activeTab === "articles" ? "bg-primary/10 border-primary text-primary" : "border-transparent text-gray-500 hover:text-white hover:bg-white/5")}>
+                  <FileText size={18} /> Articles
+                </button>
               <button onClick={() => setActiveTab("projects")} className={cn("flex items-center gap-3 px-4 py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all", activeTab === "projects" ? "bg-primary text-white" : "hover:bg-white/5 text-gray-500")}>
                 <Briefcase size={16} /> Projects
               </button>
@@ -521,6 +582,74 @@ export default function AdminDashboard() {
                       </GlassCard>
                     ))}
                   </div>
+                </motion.div>
+              )}
+
+              {activeTab === "articles" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  key="articles"
+                  className="space-y-8"
+                >
+                  <div className="flex justify-between items-center mb-6">
+                    <div>
+                      <h2 className="text-xl font-black text-white uppercase tracking-tighter">Manajemen Artikel</h2>
+                      <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1 italic">Tulis artikel untuk meningkatkan personal brand & SEO</p>
+                    </div>
+                    <div className="flex gap-4">
+                       <button onClick={saveArticles} className="bg-primary hover:bg-primary/80 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
+                        Simpan Semua Artikel
+                      </button>
+                      <button onClick={addArticle} className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2">
+                        <PlusCircle size={16} /> Tambah Artikel
+                      </button>
+                    </div>
+                  </div>
+
+                  {articlesData.map((article, index) => (
+                    <GlassCard key={article.id} className="p-8 group relative border-white/5 hover:border-primary/20 transition-all">
+                      <button onClick={() => {const n = [...articlesData]; n.splice(index, 1); setArticlesData(n)}} className="absolute top-6 right-6 p-2 bg-red-500/10 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all opacity-0 group-hover:opacity-100"><Trash2 size={16} /></button>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Judul Artikel</label>
+                            <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={article.title} onChange={(e) => {const n = [...articlesData]; n[index].title = e.target.value; setArticlesData(n)}} />
+                          </div>
+                          <div className="space-y-2">
+                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Slug</label>
+                            <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={article.slug} onChange={(e) => {const n = [...articlesData]; n[index].slug = e.target.value; setArticlesData(n)}} />
+                          </div>
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Kategori</label>
+                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={article.category} onChange={(e) => {const n = [...articlesData]; n[index].category = e.target.value; setArticlesData(n)}} />
+                            </div>
+                            <div className="space-y-2">
+                              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Tanggal</label>
+                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={article.date} onChange={(e) => {const n = [...articlesData]; n[index].date = e.target.value; setArticlesData(n)}} />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Thumbnail URL</label>
+                            <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={article.thumbnail} onChange={(e) => {const n = [...articlesData]; n[index].thumbnail = e.target.value; setArticlesData(n)}} />
+                          </div>
+                          <div className="space-y-2">
+                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Excerpt (Ringkasan)</label>
+                            <textarea rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none transition-all" value={article.excerpt} onChange={(e) => {const n = [...articlesData]; n[index].excerpt = e.target.value; setArticlesData(n)}} />
+                          </div>
+                        </div>
+                        <div className="md:col-span-2 space-y-2">
+                          <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Konten (Markdown)</label>
+                          <textarea rows={12} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none transition-all font-mono" value={article.content} onChange={(e) => {const n = [...articlesData]; n[index].content = e.target.value; setArticlesData(n)}} />
+                        </div>
+                      </div>
+                    </GlassCard>
+                  ))}
                 </motion.div>
               )}
             </AnimatePresence>

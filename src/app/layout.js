@@ -25,6 +25,8 @@ export const metadata = {
   },
 };
 
+import PageTransition from "@/components/PageTransition";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="id" suppressHydrationWarning>
@@ -34,9 +36,9 @@ export default function RootLayout({ children }) {
         <ScrollProgress />
         <CustomCursor />
         <Navbar />
-        <main className="min-h-screen">
+        <PageTransition>
           {children}
-        </main>
+        </PageTransition>
         <Footer />
         <GoogleAnalytics gaId="G-NNVSGE9C4L" />
       </body>

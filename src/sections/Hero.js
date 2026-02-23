@@ -67,6 +67,7 @@ export default function Hero() {
         >
           <Link
             href="/projects"
+            data-cursor="WORK"
             className="group px-12 py-5 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center gap-3 hover:bg-white/90 transition-all transform hover:-translate-y-1 active:scale-95"
           >
             Lihat Proyek
@@ -74,6 +75,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/contact"
+            data-cursor="HELLO"
             className="px-12 py-5 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-[11px] hover:bg-white/10 transition-all transform hover:-translate-y-1 active:scale-95"
           >
             Hubungi Saya

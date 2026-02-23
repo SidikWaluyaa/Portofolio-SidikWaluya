@@ -27,40 +27,71 @@ export default function FeaturedProjects() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <motion.div 
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20"
+      >
         {featured.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  type: "spring",
+                  damping: 25,
+                  stiffness: 100
+                }
+              }
+            }}
           >
-            <Link href={`/projects/${project.slug}`}>
-              <GlassCard className="group p-0 overflow-hidden border-0">
-                <div className="relative aspect-video overflow-hidden">
+            <Link href={`/projects/${project.slug}`} data-cursor="VIEW">
+              <GlassCard className="group p-0 overflow-hidden border-0 bg-transparent hover:bg-white/5 transition-colors duration-500">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[40px]">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                      Lihat Detail
-                    </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  
+                  <div className="absolute top-8 right-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <ArrowUpRight size={20} />
                   </div>
                 </div>
-                <div className="p-8">
-                  <span className="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">
-                    {project.category}
-                  </span>
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                
+                <div className="py-8 px-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">
+                      {project.category}
+                    </span>
+                    <div className="flex-1 h-[1px] bg-white/10" />
+                  </div>
+                  
+                  <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-6">{project.shortDescription}</p>
+                  
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                    {project.shortDescription}
+                  </p>
+                  
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400">
+                      <span key={t} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-bold text-gray-400 uppercase tracking-widest">
                         {t}
                       </span>
                     ))}
@@ -70,7 +101,7 @@ export default function FeaturedProjects() {
             </Link>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
