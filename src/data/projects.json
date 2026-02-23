@@ -1,5 +1,28 @@
 [
   {
+    "id": "1771813194258",
+    "title": "Proyek Baru",
+    "slug": "proyek-baru",
+    "category": "Web Development",
+    "thumbnail": "/Portofolio-SidikWaluya/projects/default.jpg",
+    "shortDescription": "Deskripsi singkat proyek",
+    "problem": "Masalah yang diselesaikan...",
+    "goals": [
+      "Goal 1"
+    ],
+    "tech": [
+      "React",
+      "Next.js"
+    ],
+    "impact": "Dampak proyek...",
+    "steps": [
+      {
+        "title": "Langkah 1",
+        "description": "Deskripsi langkah 1"
+      }
+    ]
+  },
+  {
     "id": "1",
     "title": "Bumi Tirta Wisata 🌊",
     "slug": "bumi-tirta-wisata",
@@ -12,7 +35,13 @@
       "Mengembangkan CMS internal untuk pengelolaan konten dinamis",
       "Meningkatkan kehadiran digital destinasi wisata"
     ],
-    "tech": ["Laravel 12", "Tailwind CSS", "MySQL", "PHP 8.2", "Vite"],
+    "tech": [
+      "Laravel 12",
+      "Tailwind CSS",
+      "MySQL",
+      "PHP 8.2",
+      "Vite"
+    ],
     "impact": "Memudahkan pengelolaan konten destinasi wisata tanpa harus menyentuh kode, serta memberikan pengalaman eksplorasi layanan yang mulus bagi pengunjung.",
     "steps": [
       {
@@ -42,7 +71,12 @@
       "Otomatisasi pembuatan surat pengantar warga",
       "Transparansi laporan keuangan dan manajemen iuran bulanan"
     ],
-    "tech": ["Laravel 12", "PostgreSQL", "Alpine.js", "Tailwind CSS"],
+    "tech": [
+      "Laravel 12",
+      "PostgreSQL",
+      "Alpine.js",
+      "Tailwind CSS"
+    ],
     "impact": "Meningkatkan akurasi data warga hingga 90% dan mempermudah pengurus dalam pelayanan administrasi serta pelaporan keuangan yang transparan.",
     "steps": [
       {
@@ -68,7 +102,13 @@
       "Manajemen jadwal sholat, khotib Jumat, dan agenda masjid",
       "Sistem inventarisasi aset masjid"
     ],
-    "tech": ["Laravel 12", "MySQL", "Tailwind CSS", "DomPDF", "Alpine.js"],
+    "tech": [
+      "Laravel 12",
+      "MySQL",
+      "Tailwind CSS",
+      "DomPDF",
+      "Alpine.js"
+    ],
     "impact": "Jamaah dapat dengan mudah memantau arus kas masjid dan jadwal ibadah melalui antarmuka yang modern dan responsif.",
     "steps": [
       {
@@ -95,7 +135,13 @@
       "Penyediaan dashboard admin yang efisien untuk monitoring pesanan",
       "Membangun antarmuka pelanggan yang responsif dan user-friendly"
     ],
-    "tech": ["Laravel 11", "PHP 8.2", "MySQL", "Bootstrap 5", "iPaymu Gateway"],
+    "tech": [
+      "Laravel 11",
+      "PHP 8.2",
+      "MySQL",
+      "Bootstrap 5",
+      "iPaymu Gateway"
+    ],
     "impact": "Mempermudah operasional RT/RW Net melalui otomatisasi pengiriman voucher ke email pelanggan dan transparansi laporan keuangan.",
     "steps": [
       {

@@ -2,8 +2,8 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  output: "export",
-  basePath: "/Portofolio-SidikWaluya",
+  output: process.env.NEXT_PUBLIC_EXPORT ? "export" : undefined,
+  basePath: process.env.NEXT_PUBLIC_EXPORT ? "/Portofolio-SidikWaluya" : "",
   images: {
     unoptimized: true,
   },
