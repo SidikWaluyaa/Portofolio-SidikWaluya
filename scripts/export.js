@@ -25,7 +25,7 @@ try {
   const env = { ...process.env, NEXT_PUBLIC_EXPORT: 'true' };
   
   // Use a cross-platform way to run next build
-  execSync('next build', { 
+  execSync('npx next build', { 
     stdio: 'inherit', 
     shell: true,
     env: env
