@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Save, 
@@ -34,63 +34,62 @@ export default function AdminPage() {
   const [articlesData, setArticlesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState({ type: "", message: "" });
+  function showStatus(type, message) {
+    setStatus({ type, message });
+    setTimeout(() => setStatus({ type: "", message: "" }), 3000);
+  }
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    if (isAuthorized) {
-      fetchData(); // This will now be fetchProfile
-      fetchProjects();
-      fetchServices();
-      fetchArticles();
-    }
-  }, [isAuthorized]);
+    if (!isAuthorized) return;
 
-  const fetchData = async () => { // Renamed from original fetchData to fetchProfile conceptually
-    setLoading(true); // Keep loading for initial data fetch
-    try {
-      const pRes = await fetch('/api/admin/profile');
-      setProfileData(await pRes.json());
-    } catch (error) {
-      showStatus("error", "Gagal mengambil data profil");
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const pRes = await fetch('/api/admin/profile');
+        setProfileData(await pRes.json());
+      } catch (error) {
+        showStatus("error", "Gagal mengambil data profil");
+      }
+      setLoading(false);
     }
-    setLoading(false); // Set loading to false after initial profile fetch
-  };
 
-  const fetchProjects = async () => {
-    try {
-      const res = await fetch('/api/admin/projects');
-      const data = await res.json();
-      setProjectsData(data);
-    } catch (error) {
-      showStatus("error", "Gagal mengambil data proyek");
+    async function fetchProjects() {
+      try {
+        const res = await fetch('/api/admin/projects');
+        const data = await res.json();
+        setProjectsData(data);
+      } catch (error) {
+        showStatus("error", "Gagal mengambil data proyek");
+      }
     }
-  };
 
-  const fetchServices = async () => {
-    try {
-      const res = await fetch('/api/admin/services');
-      const data = await res.json();
-      setServicesData(data);
-    } catch (error) {
-      showStatus("error", "Gagal mengambil data layanan");
+    async function fetchServices() {
+      try {
+        const res = await fetch('/api/admin/services');
+        const data = await res.json();
+        setServicesData(data);
+      } catch (error) {
+        showStatus("error", "Gagal mengambil data layanan");
+      }
     }
-  };
 
-  const fetchArticles = async () => {
-    try {
-      const res = await fetch('/api/admin/articles');
-      const data = await res.json();
-      setArticlesData(data);
-    } catch (error) {
-      showStatus("error", "Gagal mengambil data artikel");
+    async function fetchArticles() {
+      try {
+        const res = await fetch('/api/admin/articles');
+        const data = await res.json();
+        setArticlesData(data);
+      } catch (error) {
+        showStatus("error", "Gagal mengambil data artikel");
+      }
     }
-  };
 
-  const showStatus = (type, message) => {
-    setStatus({ type, message });
-    setTimeout(() => setStatus({ type: "", message: "" }), 3000);
-  };
+    fetchData();
+    fetchProjects();
+    fetchServices();
+    fetchArticles();
+  }, [isAuthorized, showStatus]);
 
   const saveProfile = async () => {
     try {
@@ -320,7 +319,7 @@ export default function AdminPage() {
               </button>
               <div className="p-4 mt-12 bg-white/5 rounded-xl border border-white/10">
                 <p className="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2">Editor Note</p>
-                <p className="text-[10px] text-gray-400 leading-relaxed italic">"Perubahan lokal akan memperbarui file JSON. Deploy ke GitHub Pages via `npm run export`."</p>
+                <p className="text-[10px] text-gray-400 leading-relaxed italic">&quot;Perubahan lokal akan memperbarui file JSON. Deploy ke GitHub Pages via &apos;npm run export&apos;.&quot;</p>
               </div>
             </GlassCard>
           </div>

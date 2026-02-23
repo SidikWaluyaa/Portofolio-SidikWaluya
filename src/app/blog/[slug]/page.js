@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ChevronLeft, Calendar, User, Clock, Share2 } from "lucide-react";
+import { ChevronLeft, Calendar, Clock, Share2 } from "lucide-react";
+import Image from "next/image";
 import GlassCard from "@/components/GlassCard";
 import Navbar from "@/components/Navbar";
 
@@ -110,7 +111,14 @@ export default function ArticleDetail() {
             transition={{ delay: 0.3 }}
             className="mb-16 aspect-video rounded-[40px] overflow-hidden border border-white/10 grayscale-0 shadow-2xl shadow-primary/5"
           >
-            <img src={article.thumbnail} alt={article.title} className="w-full h-full object-cover" />
+            <Image 
+              src={article.thumbnail} 
+              alt={article.title} 
+              width={1200}
+              height={675}
+              priority
+              className="w-full h-full object-cover" 
+            />
           </motion.div>
         )}
 
@@ -121,7 +129,7 @@ export default function ArticleDetail() {
           className="prose prose-invert prose-primary max-w-none"
         >
           <div className="text-gray-400 text-lg leading-relaxed font-medium font-serif italic mb-12 border-l-4 border-primary pl-8 py-2">
-            "{article.excerpt}"
+            &quot;{article.excerpt}&quot;
           </div>
           
           <div className="article-content space-y-8 text-gray-300 leading-loose text-lg font-medium tracking-tight">

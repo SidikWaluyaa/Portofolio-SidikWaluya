@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Calendar, Tag, ChevronLeft, FileText } from "lucide-react";
+import { ArrowRight, Calendar, ChevronLeft, FileText } from "lucide-react";
+import Image from "next/image";
 import GlassCard from "@/components/GlassCard";
 import Navbar from "@/components/Navbar";
 
@@ -101,7 +102,13 @@ export default function BlogPage() {
                   <GlassCard className="group h-full flex flex-col overflow-hidden border-white/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2">
                     <div className="relative h-48 w-full overflow-hidden bg-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
                       {article.thumbnail ? (
-                        <img src={article.thumbnail} alt={article.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <Image 
+                          src={article.thumbnail} 
+                          alt={article.title} 
+                          width={800}
+                          height={450}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                        />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center opacity-20">
                            <FileText size={48} />

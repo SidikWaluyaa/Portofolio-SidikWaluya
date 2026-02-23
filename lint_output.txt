@@ -1,0 +1,182 @@
+
+> portofolio-sidik@0.1.0 lint
+> eslint
+
+
+C:\laragon\www\PortofolioSidik\src\app\about\page.js
+  56:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\laragon\www\PortofolioSidik\src\app\admin\page.js
+   42:7    error    Error: Cannot access variable before it is declared
+
+`fetchData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  40 |   useEffect(() => {
+  41 |     if (isAuthorized) {
+> 42 |       fetchData(); // This will now be fetchProfile
+     |       ^^^^^^^^^ `fetchData` accessed before it is declared
+  43 |       fetchProjects();
+  44 |       fetchServices();
+  45 |       fetchArticles();
+
+  47 |   }, [isAuthorized]);
+  48 |
+> 49 |   const fetchData = async () => { // Renamed from original fetchData to fetchProfile conceptually
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 50 |     setLoading(true); // Keep loading for initial data fetch
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |     try {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 52 |       const pRes = await fetch('/api/admin/profile');
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |       setProfileData(await pRes.json());
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     } catch (error) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |       showStatus("error", "Gagal mengambil data profil");
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 56 |     }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 57 |     setLoading(false); // Set loading to false after initial profile fetch
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 58 |   };
+     | ^^^^^ `fetchData` is declared here
+  59 |
+  60 |   const fetchProjects = async () => {
+  61 |     try {  react-hooks/immutability
+   43:7    error    Error: Cannot access variable before it is declared
+
+`fetchProjects` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  41 |     if (isAuthorized) {
+  42 |       fetchData(); // This will now be fetchProfile
+> 43 |       fetchProjects();
+     |       ^^^^^^^^^^^^^ `fetchProjects` accessed before it is declared
+  44 |       fetchServices();
+  45 |       fetchArticles();
+  46 |     }
+
+  58 |   };
+  59 |
+> 60 |   const fetchProjects = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 61 |     try {
+     | ^^^^^^^^^
+> 62 |       const res = await fetch('/api/admin/projects');
+     | ^^^^^^^^^
+> 63 |       const data = await res.json();
+     | ^^^^^^^^^
+> 64 |       setProjectsData(data);
+     | ^^^^^^^^^
+> 65 |     } catch (error) {
+     | ^^^^^^^^^
+> 66 |       showStatus("error", "Gagal mengambil data proyek");
+     | ^^^^^^^^^
+> 67 |     }
+     | ^^^^^^^^^
+> 68 |   };
+     | ^^^^^ `fetchProjects` is declared here
+  69 |
+  70 |   const fetchServices = async () => {
+  71 |     try {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/immutability
+   44:7    error    Error: Cannot access variable before it is declared
+
+`fetchServices` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  42 |       fetchData(); // This will now be fetchProfile
+  43 |       fetchProjects();
+> 44 |       fetchServices();
+     |       ^^^^^^^^^^^^^ `fetchServices` accessed before it is declared
+  45 |       fetchArticles();
+  46 |     }
+  47 |   }, [isAuthorized]);
+
+  68 |   };
+  69 |
+> 70 |   const fetchServices = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |     try {
+     | ^^^^^^^^^
+> 72 |       const res = await fetch('/api/admin/services');
+     | ^^^^^^^^^
+> 73 |       const data = await res.json();
+     | ^^^^^^^^^
+> 74 |       setServicesData(data);
+     | ^^^^^^^^^
+> 75 |     } catch (error) {
+     | ^^^^^^^^^
+> 76 |       showStatus("error", "Gagal mengambil data layanan");
+     | ^^^^^^^^^
+> 77 |     }
+     | ^^^^^^^^^
+> 78 |   };
+     | ^^^^^ `fetchServices` is declared here
+  79 |
+  80 |   const fetchArticles = async () => {
+  81 |     try {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/immutability
+   45:7    error    Error: Cannot access variable before it is declared
+
+`fetchArticles` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  43 |       fetchProjects();
+  44 |       fetchServices();
+> 45 |       fetchArticles();
+     |       ^^^^^^^^^^^^^ `fetchArticles` accessed before it is declared
+  46 |     }
+  47 |   }, [isAuthorized]);
+  48 |
+
+  78 |   };
+  79 |
+> 80 |   const fetchArticles = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 81 |     try {
+     | ^^^^^^^^^
+> 82 |       const res = await fetch('/api/admin/articles');
+     | ^^^^^^^^^
+> 83 |       const data = await res.json();
+     | ^^^^^^^^^
+> 84 |       setArticlesData(data);
+     | ^^^^^^^^^
+> 85 |     } catch (error) {
+     | ^^^^^^^^^
+> 86 |       showStatus("error", "Gagal mengambil data artikel");
+     | ^^^^^^^^^
+> 87 |     }
+     | ^^^^^^^^^
+> 88 |   };
+     | ^^^^^ `fetchArticles` is declared here
+  89 |
+  90 |   const showStatus = (type, message) => {
+  91 |     setStatus({ type, message });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/immutability
+   47:6    warning  React Hook useEffect has missing dependencies: 'fetchArticles', 'fetchData', 'fetchProjects', and 'fetchServices'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react-hooks/exhaustive-deps
+  323:81   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react/no-unescaped-entities
+  323:170  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react/no-unescaped-entities
+
+C:\laragon\www\PortofolioSidik\src\app\blog\[slug]\page.js
+  113:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  124:13  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  124:31  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+C:\laragon\www\PortofolioSidik\src\app\blog\page.js
+  104:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\laragon\www\PortofolioSidik\src\app\projects\[slug]\page.js
+  34:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  65:15  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  65:32  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+C:\laragon\www\PortofolioSidik\src\app\projects\page.js
+  84:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\laragon\www\PortofolioSidik\src\components\CustomCursor.js
+  42:6  warning  React Hook useEffect has missing dependencies: 'mouseX' and 'mouseY'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\laragon\www\PortofolioSidik\src\components\Navbar.js
+  44:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\laragon\www\PortofolioSidik\src\sections\FeaturedProjects.js
+  64:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+Γ£û 19 problems (10 errors, 9 warnings)
+
