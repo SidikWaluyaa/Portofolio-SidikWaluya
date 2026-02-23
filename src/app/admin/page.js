@@ -43,9 +43,9 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const pRes = await fetch('/api/admin/profile/route.local');
-      const prRes = await fetch('/api/admin/projects/route.local');
-      const sRes = await fetch('/api/admin/services/route.local');
+      const pRes = await fetch('/api/admin/profile');
+      const prRes = await fetch('/api/admin/projects');
+      const sRes = await fetch('/api/admin/services');
       setProfileData(await pRes.json());
       setProjectsData(await prRes.json());
       setServicesData(await sRes.json());
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
 
   const saveProfile = async () => {
     try {
-      const res = await fetch('/api/admin/profile/route.local', {
+      const res = await fetch('/api/admin/profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profileData),
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
 
   const saveProjects = async () => {
     try {
-      const res = await fetch('/api/admin/projects/route.local', {
+      const res = await fetch('/api/admin/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(projectsData),
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
 
   const saveServices = async () => {
     try {
-      const res = await fetch('/api/admin/services/route.local', {
+      const res = await fetch('/api/admin/services', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(servicesData),
