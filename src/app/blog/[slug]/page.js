@@ -1,10 +1,10 @@
-import articles from "@/data/articles.json";
+import articles from "../../../data/articles.json";
 import BlogDetailClient from "./BlogDetailClient";
 import Link from "next/link";
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }));
