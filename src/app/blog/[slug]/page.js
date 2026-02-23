@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }));

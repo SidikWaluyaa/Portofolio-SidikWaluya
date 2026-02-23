@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "dummy-1",
+    "title": "Selamat Datang di Portofolio Saya 🌌",
+    "slug": "selamat-datang",
+    "category": "Announcement",
+    "date": "2024-02-23",
+    "thumbnail": "/Portofolio-SidikWaluya/logo.svg",
+    "excerpt": "Halo! Ini adalah artikel pertama di blog saya. Di sini saya akan berbagi tentang teknologi dan desain.",
+    "content": "Halo semuanya!\n\nSenang sekali akhirnya bisa meluncurkan bagian blog di portofolio saya ini. Saya berencana untuk membagikan berbagai insight mengenai pengembangan web menggunakan Next.js, tips desain UI/UX, dan berbagai tutorial sistem arsitektur.\n\nSemoga tulisan-tulisan ke depannya bisa bermanfaat bagi kita semua. Stay tuned!"
+  }
+]
