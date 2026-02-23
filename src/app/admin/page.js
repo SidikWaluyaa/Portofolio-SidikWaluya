@@ -319,7 +319,7 @@ export default function AdminPage() {
               </button>
               <div className="p-4 mt-12 bg-white/5 rounded-xl border border-white/10">
                 <p className="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2">Editor Note</p>
-                <p className="text-[10px] text-gray-400 leading-relaxed italic">&quot;Perubahan lokal akan memperbarui file JSON. Deploy ke GitHub Pages via &apos;npm run export&apos;.&quot;</p>
+                <p className="text-[10px] text-gray-400 leading-relaxed italic">{"\"Perubahan lokal akan memperbarui file JSON. Deploy ke GitHub Pages via 'npm run export'.\""}</p>
               </div>
             </GlassCard>
           </div>

@@ -39,7 +39,7 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", moveMouse);
       window.removeEventListener("mouseover", handleHover);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <motion.div

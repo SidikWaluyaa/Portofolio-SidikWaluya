@@ -34,6 +34,7 @@ try {
   console.log('✅ Export successful!');
 } catch (error) {
   console.error('❌ Build failed during export process.');
+  console.error(error);
   process.exit(1);
 } finally {
   // 3. ALWAYS restore the API routes for local development

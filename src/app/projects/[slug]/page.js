@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }) {
               <CheckCircle2 className="text-primary" /> Dampak & Hasil
             </h2>
             <p className="text-gray-300 text-lg p-8 glass rounded-3xl border-l-4 border-l-primary italic">
-              "{project.impact}"
+            {`"${project.impact}"`}
             </p>
           </section>
         </div>
