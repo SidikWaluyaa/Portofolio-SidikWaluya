@@ -19,7 +19,8 @@ import {
   GraduationCap,
   History,
   Award,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Upload
 } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import { cn } from "@/lib/utils";
@@ -96,6 +97,34 @@ export default function AdminDashboard() {
       if (res.ok) showStatus("success", "Layanan berhasil disimpan!");
     } catch (error) {
       showStatus("error", "Gagal menyimpan layanan");
+    }
+  };
+
+  const handleFileUpload = async (index, file) => {
+    if (!file) return;
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    showStatus("success", "Mengupload gambar...");
+    
+    try {
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const data = await res.json();
+      if (res.ok) {
+        const newProjects = [...projectsData];
+        newProjects[index].thumbnail = data.url;
+        setProjectsData(newProjects);
+        showStatus("success", "Gambar berhasil diupload!");
+      } else {
+        showStatus("error", data.error || "Gagal upload");
+      }
+    } catch (error) {
+      showStatus("error", "Kesalahan sistem saat upload");
     }
   };
 
@@ -389,28 +418,105 @@ export default function AdminDashboard() {
                            <div className="space-y-4">
                             <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Judul Proyek</label>
-                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary" value={project.title} onChange={(e) => {const n = [...projectsData]; n[index].title = e.target.value; setProjectsData(n)}} />
+                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={project.title} onChange={(e) => {const n = [...projectsData]; n[index].title = e.target.value; setProjectsData(n)}} />
                             </div>
                             <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Slug</label>
-                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary" value={project.slug} onChange={(e) => {const n = [...projectsData]; n[index].slug = e.target.value; setProjectsData(n)}} />
+                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={project.slug} onChange={(e) => {const n = [...projectsData]; n[index].slug = e.target.value; setProjectsData(n)}} />
                             </div>
                             <div className="space-y-2">
-                              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Thumbnail</label>
-                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary" value={project.thumbnail} onChange={(e) => {const n = [...projectsData]; n[index].thumbnail = e.target.value; setProjectsData(n)}} />
+                              <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Thumbnail URL / Upload</label>
+                              <div className="flex gap-2">
+                                <input type="text" className="flex-1 bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={project.thumbnail} onChange={(e) => {const n = [...projectsData]; n[index].thumbnail = e.target.value; setProjectsData(n)}} />
+                                <label className="cursor-pointer p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-primary/20 hover:border-primary/50 transition-all flex items-center justify-center group">
+                                  <Upload size={18} className="text-gray-400 group-hover:text-primary transition-colors" />
+                                  <input 
+                                    type="file" 
+                                    className="hidden" 
+                                    accept="image/*"
+                                    onChange={(e) => handleFileUpload(index, e.target.files[0])}
+                                  />
+                                </label>
+                              </div>
                             </div>
                           </div>
                           <div className="space-y-4">
                              <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Kategori</label>
-                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary" value={project.category} onChange={(e) => {const n = [...projectsData]; n[index].category = e.target.value; setProjectsData(n)}} />
+                              <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" value={project.category} onChange={(e) => {const n = [...projectsData]; n[index].category = e.target.value; setProjectsData(n)}} />
                             </div>
                             <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Deskripsi Singkat</label>
-                              <textarea rows={4} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none" value={project.shortDescription} onChange={(e) => {const n = [...projectsData]; n[index].shortDescription = e.target.value; setProjectsData(n)}} />
+                              <textarea rows={4} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none transition-all" value={project.shortDescription} onChange={(e) => {const n = [...projectsData]; n[index].shortDescription = e.target.value; setProjectsData(n)}} />
                             </div>
                           </div>
-                          {/* More details like Problem, Impact, Tech, Goals, Steps... */}
+
+                          <div className="md:col-span-2 space-y-4 pt-6 border-t border-white/5">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              <div className="space-y-2">
+                                <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">The Problem</label>
+                                <textarea rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none" value={project.problem} onChange={(e) => {const n = [...projectsData]; n[index].problem = e.target.value; setProjectsData(n)}} />
+                              </div>
+                              <div className="space-y-2">
+                                <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">The Impact</label>
+                                <textarea rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary resize-none" value={project.impact} onChange={(e) => {const n = [...projectsData]; n[index].impact = e.target.value; setProjectsData(n)}} />
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              <div className="space-y-4">
+                                <div className="flex justify-between items-center">
+                                  <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Technology Stack</label>
+                                  <button onClick={() => {const n = [...projectsData]; n[index].tech = [...n[index].tech, "New Tech"]; setProjectsData(n)}} className="text-[9px] font-black text-primary uppercase hover:underline">+ ADD TECH</button>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                  {project.tech.map((t, tIdx) => (
+                                    <div key={tIdx} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg pl-3 pr-2 py-1">
+                                      <input className="bg-transparent text-[10px] outline-none w-20" value={t} onChange={(e) => {const n = [...projectsData]; n[index].tech[tIdx] = e.target.value; setProjectsData(n)}} />
+                                      <button onClick={() => {const n = [...projectsData]; n[index].tech.splice(tIdx, 1); setProjectsData(n)}} className="text-red-500 hover:text-red-400"><X size={10} /></button>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              <div className="space-y-4">
+                                <div className="flex justify-between items-center">
+                                  <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Project Goals</label>
+                                  <button onClick={() => {const n = [...projectsData]; n[index].goals = [...n[index].goals, "New Goal"]; setProjectsData(n)}} className="text-[9px] font-black text-primary uppercase hover:underline">+ ADD GOAL</button>
+                                </div>
+                                <div className="space-y-2">
+                                  {project.goals.map((g, gIdx) => (
+                                    <div key={gIdx} className="flex items-center gap-2">
+                                      <input className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[11px] outline-none" value={g} onChange={(e) => {const n = [...projectsData]; n[index].goals[gIdx] = e.target.value; setProjectsData(n)}} />
+                                      <button onClick={() => {const n = [...projectsData]; n[index].goals.splice(gIdx, 1); setProjectsData(n)}} className="text-red-500 hover:text-red-400"><X size={12} /></button>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="space-y-4 pt-4">
+                              <div className="flex justify-between items-center">
+                                <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Development Steps</label>
+                                <button onClick={() => {const n = [...projectsData]; n[index].steps = [...n[index].steps, {title: "", description: ""}]; setProjectsData(n)}} className="text-[9px] font-black text-primary uppercase hover:underline">+ ADD STEP</button>
+                              </div>
+                              <div className="space-y-4">
+                                {project.steps.map((step, sIdx) => (
+                                  <div key={sIdx} className="p-4 rounded-xl border border-white/5 bg-white/5 relative group">
+                                    <button onClick={() => {const n = [...projectsData]; n[index].steps.splice(sIdx, 1); setProjectsData(n)}} className="absolute top-2 right-2 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={12}/></button>
+                                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                                      <div className="md:col-span-4">
+                                        <input placeholder="Step Title" className="w-full bg-transparent border-b border-white/10 outline-none text-[11px] font-bold py-1" value={step.title} onChange={(e) => {const n = [...projectsData]; n[index].steps[sIdx].title = e.target.value; setProjectsData(n)}} />
+                                      </div>
+                                      <div className="md:col-span-8">
+                                        <textarea placeholder="Step Description" rows={1} className="w-full bg-transparent outline-none text-[11px] text-gray-500 py-1 resize-none" value={step.description} onChange={(e) => {const n = [...projectsData]; n[index].steps[sIdx].description = e.target.value; setProjectsData(n)}} />
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </GlassCard>
                     ))}
