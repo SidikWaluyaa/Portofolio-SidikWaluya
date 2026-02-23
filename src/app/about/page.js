@@ -94,19 +94,8 @@ export default function About() {
             </GlassCard>
           </motion.div>
 
-          {/* 3. STATS CARD - PROJECTS (Spans 4 cols) */}
-          <motion.div variants={itemVariants} className="md:col-span-4">
-            <GlassCard className="h-full p-6 md:p-8 flex flex-col justify-center items-center text-center border-blue-500/20 bg-blue-500/5">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4 md:mb-6 border border-blue-500/20">
-                <Star className="text-blue-500" size={24} />
-              </div>
-              <div className="text-4xl md:text-5xl font-black mb-2 text-white">4+</div>
-              <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Proyek Selesai</div>
-            </GlassCard>
-          </motion.div>
-
-          {/* 4. EXPERIENCE CARD (Spans 7 cols) */}
-          <motion.div variants={itemVariants} className="md:col-span-7">
+          {/* 3. EXPERIENCE CARD (Now spans 8 columns to complement the Photo skyscrapers) */}
+          <motion.div variants={itemVariants} className="md:col-span-8">
             <GlassCard className="h-full p-6 md:p-10">
               <h2 className="text-xl md:text-2xl font-black mb-10 flex items-center gap-4">
                 <Briefcase className="text-primary" size={24} /> Pengalaman
@@ -127,34 +116,9 @@ export default function About() {
             </GlassCard>
           </motion.div>
 
-          {/* 4. PERFORMANCE STATS (Spans 5 cols) */}
-          <motion.div variants={itemVariants} className="md:col-span-5 space-y-6">
-            <GlassCard className="p-8 border-teal-500/20 bg-teal-500/5">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-3">
-                  <Zap className="text-teal-400" size={20} />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-teal-400">Site Performance</span>
-                </div>
-                <div className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-[10px] font-bold border border-teal-500/20">100/100</div>
-              </div>
-              <div className="space-y-4">
-                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="h-full bg-gradient-to-r from-teal-500 to-blue-500" 
-                  />
-                </div>
-                <div className="flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
-                  <span>SEO</span>
-                  <span>ACCESSIBILITY</span>
-                  <span>BEST PRACTICES</span>
-                </div>
-              </div>
-            </GlassCard>
-
-            <GlassCard className="p-8 border-violet-500/20 bg-violet-500/5">
+          {/* 4. TECH STACK CARD (Spans 4 cols) */}
+          <motion.div variants={itemVariants} className="md:col-span-4">
+            <GlassCard className="h-full p-8 border-violet-500/20 bg-violet-500/5">
               <h2 className="text-sm font-black mb-6 uppercase tracking-widest text-violet-400 flex items-center gap-3">
                 <Cpu size={18} /> Core Tech Stack
               </h2>
@@ -166,8 +130,11 @@ export default function About() {
                 ))}
               </div>
             </GlassCard>
-            
-            <GlassCard className="p-8 border-orange-500/20 bg-orange-500/5">
+          </motion.div>
+
+          {/* 5. GITHUB ACTIVITY CARD (Spans 4 cols) */}
+          <motion.div variants={itemVariants} className="md:col-span-4">
+            <GlassCard className="h-full p-8 border-orange-500/20 bg-orange-500/5">
               <h2 className="text-sm font-black mb-6 uppercase tracking-widest text-orange-400 flex items-center gap-3">
                 <Star size={18} /> GitHub Activity
               </h2>
@@ -185,8 +152,11 @@ export default function About() {
               </div>
               <p className="text-[9px] text-gray-500 mt-6 text-center font-bold uppercase tracking-widest">Kontribusi Aktif Tahun 2026</p>
             </GlassCard>
-            
-            <GlassCard className="p-8 border-primary/10">
+          </motion.div>
+
+          {/* 6. EDUCATION CARD (Spans 4 cols) */}
+          <motion.div variants={itemVariants} className="md:col-span-4">
+            <GlassCard className="h-full p-8 border-primary/10">
                <h2 className="text-sm font-black mb-6 uppercase tracking-widest text-primary flex items-center gap-3">
                 <GraduationCap size={18} /> Pendidikan
               </h2>
